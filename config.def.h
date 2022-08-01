@@ -5,8 +5,8 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=16" };
-static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=16";
+static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=14" };
+static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -45,6 +45,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+#define ALTKEY Mod1Mask
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -62,9 +63,17 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,             			XK_d,      spawn,          SHCMD("rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi") },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ ALTKEY,             			XK_Return, spawn,          SHCMD("kitty") },
+	{ ALTKEY|ShiftMask,             XK_Return, spawn,          SHCMD("alacritty") },
+	{ MODKEY,             			XK_b,      spawn,      	   SHCMD("firefox") },
+	{ MODKEY,             			XK_e,      spawn,      	   SHCMD("ranger") },
+	{ MODKEY,             			XK_w,      spawn,      	   SHCMD("brave") },
+	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
+	{ ALTKEY,             			XK_w,      spawn,      	   SHCMD("feh --randomize --bg-scale ~/.wallpapers") },
+	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
