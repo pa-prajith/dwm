@@ -5,7 +5,7 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=14" };
+static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=14", "Hack Nerd Font:size=14" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -69,7 +69,7 @@ static Key keys[] = {
 	{ ALTKEY,             			XK_Return, spawn,          SHCMD("kitty") },
 	{ ALTKEY|ShiftMask,             XK_Return, spawn,          SHCMD("alacritty") },
 	{ MODKEY,             			XK_b,      spawn,      	   SHCMD("firefox") },
-	{ MODKEY,             			XK_e,      spawn,      	   SHCMD("ranger") },
+	{ MODKEY,             			XK_e,      spawn,      	   SHCMD("thunar") },
 	{ MODKEY,             			XK_w,      spawn,      	   SHCMD("brave") },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
 	{ ALTKEY,             			XK_w,      spawn,      	   SHCMD("feh --randomize --bg-scale ~/.wallpapers") },
